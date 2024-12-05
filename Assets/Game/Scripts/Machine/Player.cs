@@ -1,11 +1,13 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
 	//======================================================================| Fields
-
+	
+	public Image Image;
 	public Transform CameraFollow;
 	public TrailRenderer TrailRenderer;
 
@@ -184,6 +186,7 @@ public class Player : MonoBehaviour {
 	private void OnTriggerEnter(Collider other) {
 		if (other.GetComponent<Collider>().CompareTag("Clear")) {
 			StartCoroutine(Clear());			
+			Image.DOColor(new Color(0f, 0f, 0f, 1f), 3f);
 		}
 	}
 
